@@ -1,9 +1,10 @@
 import express, { Request, Response, NextFunction } from 'express';
 import dotenv from 'dotenv';
+dotenv.config();
 
 import morgan from 'morgan';
 
-const PORT : number = parseInt(`{process.env.PORT || 3001}`)
+const PORT = parseInt(`${process.env.PORT || 3001}`);
 
 const app = express();
 
