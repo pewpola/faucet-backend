@@ -1,5 +1,7 @@
 import Web3 from 'web3';
 const ABI = require('./abi.json');
+import dotenv from 'dotenv';
+dotenv.config();
 
 const web3 = new Web3(`${process.env.NODE_URL}`);
 
