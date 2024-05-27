@@ -1,15 +1,16 @@
 import express, { Request, Response, NextFunction } from 'express';
 import dotenv from 'dotenv';
-dotenv.config();
-
+import cors from 'cors';
 import { mintAndTransfer } from './Web3Provider.ts'; 
 import morgan from 'morgan';
+dotenv.config();
 
 const PORT = parseInt(`${process.env.PORT || 3001}`);
 
 const app = express();
 
 app.use(morgan("tiny"));
+app.use(cors());
 
 app.post("/mint/:wallet", async (req:Request, res: Response, next: NextFunction) => {
     try {
