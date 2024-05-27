@@ -19,6 +19,7 @@ app.post("/mint/:wallet", async (req:Request, res: Response, next: NextFunction)
         const tx = await mintAndTransfer(req.params.wallet);
         res.json(tx);
     } catch (error) {
+        console.log(error);
         res.status(500).json(error);
     }
 });
