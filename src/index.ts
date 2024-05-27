@@ -10,7 +10,9 @@ const PORT = parseInt(`${process.env.PORT || 3001}`);
 const app = express();
 
 app.use(morgan("tiny"));
-app.use(cors());
+app.use(cors({
+    origin: process.env.CORS_ORIGIN || "*"
+}));
 
 app.post("/mint/:wallet", async (req:Request, res: Response, next: NextFunction) => {
     try {
